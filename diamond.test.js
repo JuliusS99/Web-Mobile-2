@@ -2,9 +2,10 @@ const diamond = require("./diamond.js");
 
 describe("diamond", () => {
     [
-        { input: 'A', output: 'A'}
+        { input: 'A', output: '\nA'},
+        { input: 'C', output: '\n--A--\n-B-B-\nC---C\n-B-B-\n--A--'}
     ].forEach(({input, output}) => {
-        it(`should return ${output} on input "${input}"`, () => {
+        it(`should return ${output} on char "${input}"`, () => {
             expect(diamond.diamond(input)).toEqual(output)
         })
     })
@@ -42,4 +43,5 @@ describe("Zeile", () => {
         })
     })
 });
+
 

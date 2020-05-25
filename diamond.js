@@ -1,7 +1,19 @@
 const alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split("");
 
-const diamond = () =>{
-    return 'A';
+const diamond = (char) =>{
+    let diamond='';
+    const indexChar = alphabet.indexOf(char);
+    for(let i = 0; i < indexChar; i++){
+        diamond += '\n';
+        diamond+=makeLine(char, alphabet[i]);
+    }
+
+    for(let i = indexChar; i>= 0; i--){
+        diamond += '\n';
+        diamond+=makeLine(char, alphabet[i]);
+    }
+
+    return diamond;
 };
 
 //innere Slots
