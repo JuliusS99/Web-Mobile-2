@@ -1,11 +1,22 @@
-var diamond = require("./diamond.js");
+const diamond = require("./diamond.js");
 
-
-test("diamond exists", function () {                        //1. Test, diamond function  
-    expect(diamond.create).toBeInstanceOf(Function);
+describe("diamond", () => {
+    [
+        { input: 'A', output: 'A'}
+    ].forEach(({input, output}) => {
+        it(`should return ${output} on input "${input}"`, () => {
+            expect(diamond.diamond(input)).toEqual(output)
+        })
+    })
 });
 
-
-test("A Diamond = A", function () {
-    expect(diamond.create("A")).toEqual(["A"]);
+describe("innere Striche", () => {
+    [
+        { input: 'B', output: '-'},
+        { input: 'A', output: ''},
+    ].forEach(({input, output}) => {
+        it(`should return ${output} on input "${input}"`, () => {
+            expect(diamond.innerSlots(input)).toEqual(output)
+        })
+    })
 });

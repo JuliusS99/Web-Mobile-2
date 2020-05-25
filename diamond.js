@@ -1,20 +1,20 @@
-module.exports.create = null;
+const alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split("");
 
-
-module.exports = {                      //function wird erstellt um den Diamond zu erstellen
-    create: function () {
-        "use strict";
-        return;
-    }
+const diamond = () =>{
+    return 'A';
 };
 
-function a (char) {               //für undifined char return "A"
-    if (char === "A") {
-        return ["A"];
-    }
-    return [
-        " A ",
-        "B B",
-        " A "
-    ];
-}
+const innerSlots = (currentLetter) => {
+    let amountOfDashes = alphabet.indexOf(currentLetter) *2 - 1 ;
+    let innerDashes = '';
+    for(let i = 0; i < amountOfDashes; i++){
+        innerDashes += '-';
+    };
+    return innerDashes;
+
+};
+
+module.exports = {
+    diamond,
+    innerSlots
+};
