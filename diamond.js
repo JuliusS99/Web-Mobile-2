@@ -4,6 +4,7 @@ const diamond = () =>{
     return 'A';
 };
 
+//innere Slots
 const innerSlots = (currentLetter) => {
     let amountOfDashes = alphabet.indexOf(currentLetter) *2 - 1 ;
     let innerDashes = '';
@@ -13,6 +14,7 @@ const innerSlots = (currentLetter) => {
     return innerDashes;
 };
 
+//äußere Slots
 const outerSlots = (targetLetter, currentLetter) => {
     const innerSlotsTargetLetter = alphabet.indexOf(targetLetter) *2 - 1 ; // C: 3
     let innerDashesCurrentLetter = alphabet.indexOf(currentLetter) *2 - 1; // B: 1, A:0
@@ -27,8 +29,19 @@ const outerSlots = (targetLetter, currentLetter) => {
 
 };
 
+// Zeile :()
+const makeLine = (targetLetter, currentLetter) => {
+    if(currentLetter === 'A'){
+        return outerSlots(targetLetter, currentLetter) + currentLetter + outerSlots(targetLetter, currentLetter);
+    }else{
+    return outerSlots(targetLetter, currentLetter) + currentLetter + innerSlots(currentLetter) + currentLetter + outerSlots(targetLetter, currentLetter);
+    };
+};
+
 module.exports = {
     diamond,
     innerSlots,
-    outerSlots
+    outerSlots,
+    makeLine
+
 };

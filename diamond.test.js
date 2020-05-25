@@ -31,3 +31,15 @@ describe("äußere Striche", () => {
         })
     })
 });
+
+describe("Zeile", () => {
+    [
+        {targetLetter: 'C', currentLetter: 'A', output: '--A--'},
+        {targetLetter: 'C', currentLetter: 'B', output: '-B-B-'}
+    ].forEach(({targetLetter, currentLetter, output}) => {
+        it(`should return ${output} on input ${targetLetter} and ${currentLetter}`, () => {
+            expect(diamond.makeLine(targetLetter, currentLetter)).toEqual(output)
+        })
+    })
+});
+
